@@ -1,57 +1,98 @@
-require("nvim-treesitter.configs").setup({
-  autotag = {
-    enable = true,
-    enable_rename = true,
-    enable_close = true,
-    enable_close_on_slash = true,
-    filetypes = {
-      "html",
-      "javascript",
-      "typescript",
-      "javascriptreact",
-      "typescriptreact",
-      "tsx",
-      "jsx",
-      "css",
-      "lua",
-      "xml",
-      "markdown",
-    },
-  },
-})
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-      },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "RRethy/nvim-treesitter-endwise",
+      "windwp/nvim-ts-autotag",
+      "nvim-treesitter/nvim-treesitter-context",
     },
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
-    indent = { enable = true, disable = { "python", "yaml" } },
-    rainbow = {
-      enable = true,
-      extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-      max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    },
+    build = ":TSUpdate",
+    config = function()
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+        ensure_installed = {
+          "astro",
+          "css",
+          "bash",
+          "c",
+          "dockerfile",
+          "gitignore",
+          "go",
+          "gomod",
+          "gosum",
+          "gowork",
+          "graphql",
+          "html",
+          "java",
+          "javascript",
+          "jq",
+          "jsdoc",
+          "json",
+          "lua",
+          "luadoc",
+          "luap",
+          "markdown",
+          "markdown_inline",
+          "python",
+          "query",
+          "regex",
+          "rust",
+          "sql",
+          "toml",
+          "tsx",
+          "typescript",
+          "vim",
+          "vimdoc",
+          "yaml",
+        },
+        auto_install = true,
+        highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
+        indent = { enable = true, disable = { "python", "yaml" } },
+        matchup = {
+          enable = true,
+        },
+        endwise = {
+          enable = true,
+        },
+        autotag = {
+          enable = true,
+          enable_close_on_slash = false,
+          filetypes = {
+            "html",
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "typescriptreact",
+            "tsx",
+            "jsx",
+            "css",
+            "lua",
+            "xml",
+            "markdown",
+          },
+        },
+      })
+    end,
   },
   {
-    "p00f/nvim-ts-rainbow",
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    enabled = false,
+    config = function()
+      local npairs = require("nvim-autopairs")
+      npairs.setup({
+        check_ts = true,
+      })
+    end,
+  },
+  {
+    "altermo/ultimate-autopair.nvim",
+    enabled = true,
+    event = { "InsertEnter", "CmdlineEnter" },
+    branch = "v0.6",
+    opts = {},
   },
 }
