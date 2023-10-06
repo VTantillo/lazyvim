@@ -2,6 +2,8 @@
 
 This is my tmux config so that I can get it on my work computer.
 
+tas
+
 ```bash
 set -g default-terminal "screen-256color"
 
