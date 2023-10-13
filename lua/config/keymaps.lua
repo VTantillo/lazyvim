@@ -47,5 +47,5 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("n", "<leader>gd", function()
-  Util.float_term({ "lazydocker" }, { cwd = Util.get_root(), esc_esc = false, ctrl_hjkl = false })
+  Util.terminal.open({ "lazydocker" }, { cwd = Util.root.get(), esc_esc = false, ctrl_hjkl = false })
 end, { desc = "Lazydocker" })
