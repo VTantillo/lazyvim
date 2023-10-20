@@ -11,11 +11,10 @@ return {
     "DBUIFindBuffer",
   },
   keys = {
-    { "<leader>gpo", "<cmd>:DBUI<CR>", desc = "DB UI Open" },
-    { "<leader>gpu", "<cmd>:DBUIToggle<CR>", desc = "DB UI Toggle" },
-    { "<leader>gpr", "<cmd>:DBUIAddConnection<CR>", desc = "DB add connection" },
-    { "<leader>gpf", "<cmd>:DBUIFindBuffer<CR>", desc = "DB - Find Buffer" },
-    { "<leader>gpi", "<cmd>:DBUILastQueryInfo<CR>", desc = "DB last query info" },
+    { "<leader>Do", "<cmd>:DBUIToggle<CR>", desc = "DB UI Toggle" },
+    { "<leader>Da", "<cmd>:DBUIAddConnection<CR>", desc = "DB add connection" },
+    { "<leader>Df", "<cmd>:DBUIFindBuffer<CR>", desc = "DB - Find Buffer" },
+    { "<leader>Di", "<cmd>:DBUILastQueryInfo<CR>", desc = "DB last query info" },
   },
   init = function()
     -- Your DBUI configuration
