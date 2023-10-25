@@ -2,9 +2,10 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      table.insert(opts.ensure_installed, "black")
+      -- table.insert(opts.ensure_installed, "black")
       table.insert(opts.ensure_installed, "isort")
       table.insert(opts.ensure_installed, "prettierd")
+      table.insert(opts.ensure_installed, "ruff-lsp")
     end,
   },
   {
@@ -12,7 +13,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        ["python"] = { "isort", "ruff_fix", "black" },
+        ["python"] = { "ruff_format", "ruff_fix", "isort" },
         ["javascript"] = { { "prettierd", "prettier" } },
         ["javascriptreact"] = { { "prettierd", "prettier" } },
         ["typescript"] = { { "prettierd", "prettier" } },
