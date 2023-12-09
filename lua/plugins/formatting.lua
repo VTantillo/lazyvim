@@ -2,10 +2,10 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      -- table.insert(opts.ensure_installed, "black")
       table.insert(opts.ensure_installed, "isort")
       table.insert(opts.ensure_installed, "prettierd")
       table.insert(opts.ensure_installed, "ruff-lsp")
+      table.insert(opts.ensure_installed, "sqlfluff")
     end,
   },
   {
@@ -30,6 +30,7 @@ return {
         ["markdown.mdx"] = { { "prettierd", "prettier" } },
         ["graphql"] = { { "prettierd", "prettier" } },
         ["handlebars"] = { { "prettierd", "prettier" } },
+        ["sql"] = { "sqlfluff" },
       },
     },
   },
