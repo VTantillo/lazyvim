@@ -1,5 +1,6 @@
 return {
   "theprimeagen/harpoon",
+  branch = "harpoon2",
   opts = function()
     local mark = require("harpoon.mark")
     local ui = require("harpoon.ui")
