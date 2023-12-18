@@ -30,7 +30,7 @@ return {
         ["markdown.mdx"] = { { "prettierd", "prettier" } },
         ["graphql"] = { { "prettierd", "prettier" } },
         ["handlebars"] = { { "prettierd", "prettier" } },
-        ["sql"] = { "sqlfluff" },
+        -- ["sql"] = { "sqlfluff" },
       },
     },
   },

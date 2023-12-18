@@ -19,7 +19,7 @@ return {
     init = function()
       -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
-      vim.g.db_ui_save_location = "~/.config/db_ui"
+      vim.g.db_ui_save_location = "~/code/db"
     end,
   },
   { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
