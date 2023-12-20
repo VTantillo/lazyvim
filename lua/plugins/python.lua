@@ -56,7 +56,10 @@ return {
   {
     "linux-cultist/venv-selector.nvim",
     cmd = "VenvSelect",
-    opts = {},
+    opts = {
+      name = ".venv",
+      parents = 0,
+    },
     keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
 }
