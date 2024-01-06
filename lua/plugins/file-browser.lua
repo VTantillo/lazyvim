@@ -4,16 +4,21 @@ return {
     enabled = false,
   },
   {
-    "nvim-telescope/telescope-file-browser.nvim",
-    keys = {
-      {
-        "<leader>e",
-        ":Telescope file_browser path=%:p:h=%:p:h<cr>",
-        desc = "Browse Files",
-      },
-    },
+    "stevearc/oil.nvim",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("telescope").load_extension("file_browser")
+      require("oil").setup({
+        keymaps = {
+          ["<C-h>"] = false,
+          ["<C-l>"] = false,
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      })
+      vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
     end,
   },
 }
