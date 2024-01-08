@@ -11,7 +11,7 @@ return {
         save_on_toggle = true,
       },
     })
-    vim.keymap.set("n", "<leader>ha", function()
+    vim.keymap.set("n", "<leader>h", function()
       harpoon:list():append()
     end)
 
