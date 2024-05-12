@@ -12,7 +12,7 @@ return {
       },
     })
     vim.keymap.set("n", "<leader>h", function()
-      harpoon:list():append()
+      harpoon:list():add()
     end)
 
     vim.keymap.set("n", "<C-e>", function()

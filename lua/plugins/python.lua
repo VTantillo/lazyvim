@@ -12,23 +12,32 @@ return {
     opts = {
       servers = {
         pyright = {
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = "basic",
-                autoImportCompletions = true,
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = "workspace",
-              },
+          enabled = vim.g.lazyvim_python_lsp ~= "basedpyright",
+        },
+        basedpyright = {
+          enabled = vim.g.lazyvim_python_lsp == "basedpyright",
+        },
+        ruff_lsp = {
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
             },
           },
         },
-        ruff_lsp = {},
       },
       setup = {
         ruff_lsp = function()
-          require("lazyvim.util").lsp.on_attach(function(client, _)
+          LazyVim.lsp.on_attach(function(client, _)
             if client.name == "ruff_lsp" then
               -- Disable hover in favor of Pyright
               client.server_capabilities.hoverProvider = false
