@@ -1,6 +1,3 @@
-local lsp = "basedpyright"
-local ruff = "ruff_lsp"
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -14,22 +11,19 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {
-          enabled = lsp == "pyright",
-        },
         basedpyright = {
-          enabled = lsp == "basedpyright",
-        },
-        [lsp] = {
           enabled = true,
-        },
-        ruff_lsp = {
-          enabled = ruff == "ruff_lsp",
+          settings = {
+            basedpyright = {
+              disableOrganizeImports = true,
+              -- https://github.com/DetachHead/basedpyright/issues/203
+              typeCheckingMode = "off",
+            },
+          },
         },
         ruff = {
-          enabled = ruff == "ruff",
-        },
-        [ruff] = {
+          enabled = true,
+          -- cmd = { "ruff", "server" },
           keys = {
             {
               "<leader>co",
@@ -48,9 +42,9 @@ return {
         },
       },
       setup = {
-        [ruff] = function()
+        ruff = function()
           LazyVim.lsp.on_attach(function(client, _)
-            if client.name == ruff then
+            if client.name == "ruff" then
               -- Disable hover in favor of Pyright
               client.server_capabilities.hoverProvider = false
             end
