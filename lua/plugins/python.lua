@@ -23,7 +23,6 @@ return {
         },
         ruff = {
           enabled = true,
-          -- cmd = { "ruff", "server" },
           keys = {
             {
               "<leader>co",
@@ -86,6 +85,7 @@ return {
   },
   {
     "linux-cultist/venv-selector.nvim",
+    branch = "regexp",
     cmd = "VenvSelect",
     opts = function(_, opts)
       if LazyVim.has("nvim-dap-python") then
