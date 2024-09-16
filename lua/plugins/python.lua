@@ -93,11 +93,10 @@ return {
       end
       return vim.tbl_deep_extend("force", opts, {
         name = {
-          "venv",
           ".venv",
-          "env",
-          ".env",
+          "venv",
         },
+        parents = 10,
       })
     end,
     keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
