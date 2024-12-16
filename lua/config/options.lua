@@ -8,3 +8,4 @@ vim.o.conceallevel = 0
 vim.o.termguicolors = true
 
 vim.g.lazyvim_python_lsp = "basedpyright"
+vim.g.lazyvim_picker = "telescope"
