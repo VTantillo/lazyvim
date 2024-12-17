@@ -71,11 +71,4 @@ return {
       },
     },
   },
-  {
-    "altermo/ultimate-autopair.nvim",
-    enabled = true,
-    event = { "InsertEnter", "CmdlineEnter" },
-    branch = "v0.6",
-    opts = {},
-  },
 }
