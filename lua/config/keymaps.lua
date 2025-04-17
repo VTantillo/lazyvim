@@ -18,13 +18,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set(
-  "n",
-  "<leader>sx",
-  require("telescope.builtin").resume,
-  { noremap = true, silent = true, desc = "Resume" }
-)
-
 vim.keymap.set("n", "<C-h>", ":<C-U>TmuxNavigateLeft<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", ":<C-U>TmuxNavigateRight<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-j>", ":<C-U>TmuxNavigateDown<cr>", { noremap = true, silent = true })
@@ -43,6 +36,7 @@ vim.keymap.set("n", "Q", "<nop>")
 
 local Util = require("lazyvim.util")
 local Terminal = require("snacks.terminal")
+
 vim.keymap.set("n", "<leader>gd", function()
   Terminal.open({ "lazydocker" }, { cwd = Util.root.get(), interactive = true })
 end, { desc = "Lazydocker" })
