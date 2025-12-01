@@ -11,19 +11,22 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        basedpyright = {
+        ty = {
           enabled = true,
-          settings = {
-            basedpyright = {
-              disableOrganizeImports = true,
-              -- https://github.com/DetachHead/basedpyright/issues/203
-              typeCheckingMode = "off",
-              analysis = {
-                diagnosticMode = "workspace",
-              },
-            },
-          },
         },
+        -- basedpyright = {
+        --   enabled = true,
+        --   settings = {
+        --     basedpyright = {
+        --       disableOrganizeImports = true,
+        --       -- https://github.com/DetachHead/basedpyright/issues/203
+        --       typeCheckingMode = "off",
+        --       analysis = {
+        --         diagnosticMode = "workspace",
+        --       },
+        --     },
+        --   },
+        -- },
         ruff = {
           enabled = true,
           keys = {
