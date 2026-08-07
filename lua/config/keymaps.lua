@@ -37,6 +37,6 @@ vim.keymap.set("n", "Q", "<nop>")
 local Util = require("lazyvim.util")
 local Terminal = require("snacks.terminal")
 
-vim.keymap.set("n", "<leader>gd", function()
+vim.keymap.set("n", "<leader>gD", function()
   Terminal.open({ "lazydocker" }, { cwd = Util.root.get(), interactive = true })
 end, { desc = "Lazydocker" })
